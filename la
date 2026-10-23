@@ -1,0 +1,26 @@
+def count_sign_changes(sequence):
+    if len(sequence) < 2:
+        return 0  # Если длина последовательности меньше 2, изменений знака не будет
+
+    sign_changes = 0
+    current_sign = None
+
+    for number in sequence:
+        if number > 0:
+            new_sign = 1  # Положительное число
+        elif number < 0:
+            new_sign = -1  # Отрицательное число
+        else:
+            new_sign = 0  # Ноль - особый случай, игнорируем его
+
+        # Проверяем, изменился ли знак
+        if new_sign != 0 and new_sign != current_sign:
+            sign_changes += 1
+            current_sign = new_sign
+
+    return sign_changes
+
+# Пример использования
+sequence = [-5, -2, 9, 1, 0, 4, -3]
+changes = count_sign_changes(sequence)
+print("Количество изменений знака:", changes)

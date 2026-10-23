@@ -1,0 +1,14 @@
+# Ввод количества элементов
+N = int(input("Введите количество элементов: "))
+if N < 3:
+    print("Недостаточно элементов для анализа")
+else:
+    # Ввод чисел
+    numbers = list(map(int, input(f"Введите {N} целых числа, разделенных пробелами: ").split()))
+
+    count = 0
+    for i in range(1, N - 1):
+        if abs(numbers[i]) > abs(numbers[i - 1]) and abs(numbers[i]) < abs(numbers[i + 1]):
+            count += 1
+
+    print("Количество элементов, которые по модулю больше предыдущего и меньше следующего:", count)
