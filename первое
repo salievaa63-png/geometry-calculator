@@ -1,0 +1,22 @@
+def calculate_average(values):
+    # Список для хранения числовых значений
+    numeric_values = []
+
+    # Проходим по всем элементам в входном списке
+    for value in values:
+        # Проверяем, является ли элемент числом (целым или с плавающей точкой)
+        if isinstance(value, (int, float)):
+            numeric_values.append(value)
+
+    # Если нет числовых значений, возвращаем None
+    if not numeric_values:
+        return None
+
+    # Вычисляем среднее арифметическое
+    average = sum(numeric_values) / len(numeric_values)
+    return average
+
+# Пример использования
+data = [10, 20, 'abc', 30, None, 40.5, 'xyz']
+average = calculate_average(data)
+print("Среднее арифметическое:", average)

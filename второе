@@ -1,0 +1,13 @@
+from collections import Counter
+import heapq
+
+def topKFrequent(nums, k):
+    # Подсчитываем количество вхождений каждого элемента
+    counts = Counter(nums)
+    
+    # Используем nlargest для получения K наиболее частых элементов
+    return heapq.nlargest(k, counts.keys(), key=counts.get)
+
+# Примеры использования:
+print(topKFrequent([1, 1, 1, 2, 2, 3], 2))  # Вывод: [1, 2]
+print(topKFrequent([1], 1))                  # Вывод: [1]
