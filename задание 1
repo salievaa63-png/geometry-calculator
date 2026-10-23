@@ -1,0 +1,12 @@
+def is_isogram(s: str) -> bool:
+    # Приводим строку к нижнему регистру для нечувствительности к регистру
+    s = s.lower()
+    # Используем множество для проверки уникальности символов
+    unique_characters = set(s)
+    return len(unique_characters) == len(s)
+
+# Примеры использования
+print(is_isogram("abc"))  # True
+print(is_isogram("aba"))  # False
+print(is_isogram("Python")) # True
+print(is_isogram("programming")) # False
