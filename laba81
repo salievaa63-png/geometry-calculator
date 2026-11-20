@@ -1,0 +1,18 @@
+from collections import Counter
+
+
+def count_first_digits(arr):
+    first_digit_count = Counter()
+
+    for num in arr:
+        first_digit = str(abs(num))[0]
+        first_digit_count[first_digit] += 1
+
+    most_common_digit, count = first_digit_count.most_common(1)[0] if first_digit_count else (None, 0)
+
+    return most_common_digit, count
+
+
+array = [123, 456, 789, -101, 234, 201, -567, 123, 456]
+digit, count = count_first_digits(array)
+print(f"Цифра, с которой чаще всего начинаются элементы: {digit}, количество элементов: {count}")
