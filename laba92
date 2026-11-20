@@ -1,0 +1,14 @@
+def reverse_and_omit_non_alphabetic(s):
+    # Step 1: Filter out non-alphabetic characters
+    filtered_chars = [char for char in s if char.isalpha()]
+
+    # Step 2: Reverse the list of filtered characters
+    reversed_chars = filtered_chars[::-1]
+
+    # Step 3: Join back into a string to return
+    return ''.join(reversed_chars)
+
+
+# Example usage:
+print(reverse_and_omit_non_alphabetic("krishan"))  # Output: "nahsirk"
+print(reverse_and_omit_non_alphabetic("ultr53o?n"))  # Output: "nortlu"
