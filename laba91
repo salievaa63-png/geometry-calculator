@@ -1,0 +1,18 @@
+def longest(s1, s2):
+    # Объединить строки и создать множество уникальных символов
+    unique_chars = set(s1) | set(s2)
+
+    # Отсортировать уникальные символы
+    sorted_chars = sorted(unique_chars)
+
+    # Соединить отсортированные символы в строку
+    return ''.join(sorted_chars)
+
+
+# Примеры использования:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+print(longest(a, b))  # Вывод: "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+print(longest(a, a))  # Вывод: "abcdefghijklmnopqrstuvwxyz"
