@@ -1,0 +1,38 @@
+def find_neighbors(matrix, i, j, k):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    neighbors = []
+
+    for p in range(max(0, i - k), min(rows, i + k + 1)):
+        for q in range(max(0, j - k), min(cols, j + k + 1)):
+        
+            if (abs(p - i) == k and abs(q - j) <= k) or (abs(q - j) == k and abs(p - i) <= k):
+                neighbors.append(matrix[p][q])
+
+    return neighbors
+
+def count_smaller_than_neighbors(matrix):
+    count = 0
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    for i in range(rows):
+        for j in range(cols):
+            current_element = matrix[i][j]
+            neighbors = find_neighbors(matrix, i, j, 1)
+            if neighbors:
+                min_neighbor = min(neighbors)
+                if current_element < min_neighbor:
+                    count += 1
+
+    return count
+
+if __name__ == "__main__":
+    A = [
+        [5, 3, 8],
+        [6, 7, 2],
+        [1, 4, 9]
+    ]
+
+    result = count_smaller_than_neighbors(A)
+    print("Количество элементов меньше любого элемента из своего 1-окружения:", result)
